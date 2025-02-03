@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukmu, Manusia Favoritku</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d0b1c;
+            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+        .moon {
+            width: 200px;
+            height: 200px;
+            background: #f5f5dc;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: black;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            animation: glow 2s infinite alternate, float 4s ease-in-out infinite;
+        }
+        .text-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .text-circle span {
+            position: absolute;
+            transform-origin: center;
+            opacity: 0; /* Start invisible */
+            animation: fadeIn 2s forwards; /* Fade-in animation */
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://storage.googleapis.com/a1aa/image/ITuIJ6RoHfoBfujGzqAyGvT6DlBYraDbHVtrXlJwvG8.jpg');
+            background-size: cover;
+            opacity: 0.5;
+            animation: twinkle 3s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(255, 255, 255, 1);
+            }
+        }
+        @keyframes twinkle {
+            from {
+                opacity: 0.5;
+            }
+            to {
+                opacity: 0.8;
+            }
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Fade to visible */
+            }
+        }
+        body {
+  background: 
+    linear-gradient(#0007, #0000),
+    #123;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes firework {
+  0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+/* @keyframes fireworkPseudo {
+  0% { transform: translate(-50%, -50%); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+ */
+.firework,
+.firework::before,
+.firework::after
+{
+  --initialSize: 0.5vmin;
+  --finalSize: 45vmin;
+  --particleSize: 0.2vmin;
+  --color1: yellow;
+  --color2: khaki;
+  --color3: white;
+  --color4: lime;
+  --color5: gold;
+  --color6: mediumseagreen;
+  --y: -30vmin;
+  --x: -50%;
+  --initialY: 60vmin;
+  content: "";
+  animation: firework 2s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, var(--y));
+  width: var(--initialSize);
+  aspect-ratio: 1;
+  background: 
+    /*
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 100%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 100%,
+    */
+    
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    
+    /* bottom right */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+    
+    /* bottom left */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+    
+    /* top left */
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+    
+    /* top right */
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%
+    ;
+  background-size: var(--initialSize) var(--initialSize);
+  background-repeat: no-repeat;
+}
+
+.firework::before {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+/*   transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg); */
+  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+/*   animation: fireworkPseudo 2s infinite; */
+}
+
+.firework::after {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+/*   transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg); */
+  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+/*   animation: fireworkPseudo 2s infinite; */
+}
+
+.firework:nth-child(2) {
+  --x: 30vmin;
+}
+
+.firework:nth-child(2),
+.firework:nth-child(2)::before,
+.firework:nth-child(2)::after {
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;  
+  --finalSize: 40vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --x: -30vmin;
+  --y: -50vmin;
+}
+
+.firework:nth-child(3),
+.firework:nth-child(3)::before,
+.firework:nth-child(3)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 70%;
+  top: 60%;
+  animation-delay: -0.4s;
+}
+/* end */
+.firework-large {
+            --initialSize: 1vmin;
+            --finalSize: 60vmin;
+            --particleSize: 0.4vmin;
+            --color1: rgb(192, 31, 130);
+            --color2: rgb(223, 44, 164);
+            --color3: rgb(250, 167, 218);
+            --color4: rgb(244, 230, 238);
+            --color5: rgb(109, 203, 253);
+            --color6: rgb(241, 251, 253);
+            --y: -40vmin;
+            --x: -50%;
+            --initialY: 70vmin;
+            content: "";
+            animation: firework 2.5s infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, var(--y));
+            width: var(--initialSize);
+            aspect-ratio: 1;
+            background: 
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%;
+            background-size: var(--initialSize) var(--initialSize);
+            background-repeat: no-repeat;
+        }
+
+        .firework-large::before {
+            --x: -50%;
+            --y: -50%;
+            --initialY: -50%;
+            transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+        }
+
+        .firework-large::after {
+            --x: -50%;
+            --y: -50%;
+            --initialY: -50%;
+            transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="text-circle" id="textCircle"></div>
+        <a href="home.html" class="moon">UNTUKMU MANUSIA FAVORITKU<a/>
+    </div>
+    <div class="firework"></div>
+<div class="firework"></div>
+<div class="firework"></div>
+<div class="firework-large"></div>
+ <!-- Audio element for autoplay -->
+    <audio id="background-music" src="/orang favorit.mp3" autoplay loop>
+    Your browser does not support the audio element.
+  </audio>
+    <script>
+        const text = "I LOVE YOU TO THE MOON AND BACK";
+        const textCircle = document.getElementById("textCircle");
+        const radius = 140;
+        const words = text.split(" ");
+        const totalWords = words.length;
+
+        words.forEach((word, i) => {
+            const span = document.createElement("span");
+            const angle = (i / totalWords) * 360;
+            span.textContent = word;
+            span.style.position = "absolute";
+            span.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+            span.style.animationDelay = `${i * 1}s`; // Stagger the fade-in
+            textCircle.appendChild(span);
+        });  
+    </script>
+</body>
+</html>

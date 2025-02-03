@@ -1,0 +1,619 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   About You
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5dc;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #f5f5dc;
+            padding: 10px 0;
+            box-sizing: border-box;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #000;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+        }
+        .navbar ul li {
+            margin: 0 5px;
+        }
+        .navbar ul li a {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            background-color: #ccc;
+        }
+        .navbar ul li a i {
+            margin-right: 8px;
+        }
+        .container {
+            width: 100%;
+            margin: 60px 0 20px;
+            padding: 20px;
+            background-color: #f5f5dc;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin-bottom: 20px;
+        }
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #000;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-frame .tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background-color: #ccc;
+            border: 1px solid #000;
+        }
+        .photo-frame .bottom-line {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background-color: #000;
+        }
+        .photo-frame .hearts {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+        }
+        .details {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .story {
+            display: inline-block;
+            vertical-align: top;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin-top: 20px;
+        }
+        .story p {
+            margin: 5px 0;
+        }
+        .right-section {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .story-container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .story-container .story {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .story-container .photo-frame {
+            margin-left: 20px;
+        }
+        .photo-frame-with-hearts {
+            width: 150px;
+            height: 200px;
+            border: 2px solid #000;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            padding-bottom: 50px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+        .photo-frame-with-hearts img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-frame-with-hearts .hearts {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+        }
+        .photo-frame-with-hearts .tape {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background-color: #ccc;
+            border: 1px solid #000;
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+        }
+        .photo-frame-with-hearts .bottom-line {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background-color: #000;
+        }
+        .quote-container {
+            text-align: left;
+            padding: 20px;
+        }
+        .quote {
+            font-size: 24px;
+            line-height: 1.5;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        @media (max-width: 600px) {
+            .navbar ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .navbar ul li {
+                margin: 5px;
+            }
+            .navbar ul li a {
+                padding: 5px;
+                font-size: 14px;
+            }
+            .container {
+                padding: 10px;
+                margin-top: 100px;
+            }
+            .photo-frame, .photo-frame-with-hearts {
+                width: 100px;
+                height: 100px;
+            }
+            .details, .right-section {
+                display: block;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .story-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .story-container .photo-frame, .story-container .photo-frame-with-hearts {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .story-container .story {
+                margin-top: 10px;
+                margin-right: 0;
+            }
+        }
+        .card, .section-title, .profile-img, .navbar ul li a {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover, .section-title:hover, .profile-img:hover, .navbar ul li a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .kodfun-galeri {
+            display: flex;
+            height: 20rem;
+            gap: 1rem;
+        }
+        .kodfun-galeri > div {
+            flex: 1;
+            border-radius: 1rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            transition: all 1s ease-in-out;
+        }
+        .kodfun-galeri > div:hover {
+            flex: 5;
+            border-radius: 1rem;
+        }
+        .footer {
+            background-color: #2e2e2e;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        .bottles {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            justify-items: center;
+        }
+        .bottle-container {
+            text-align: center;
+        }
+        .bottle {
+            width: 60px;
+            height: 80px;
+            position: relative;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
+        .bottle .content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffcccc;
+        }
+        .bottle-label {
+            margin-top: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+        .page {
+            width: 80%;
+            max-width: 600px;
+            background-color: #f5f5dc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin: 20px auto;
+            display: flex;
+            align-items: flex-start;
+        }
+        .text {
+            font-size: 1.2em;
+            line-height: 1.5em;
+            margin-bottom: 20px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            flex: 1;
+        }
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+        }
+        .image-container {
+            width: 100px;
+            margin-left: 20px;
+        }
+        .image-container img {
+            width: 100%;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="navbar">
+   <ul>
+    <li>
+     <a class="flex items-center space-x-2" href="/home.html">
+      <i class="fas fa-home">
+      </i>
+      <span>
+       Home
+      </span>
+     </a>
+    </li>
+    <li>
+     <a class="flex items-center space-x-2" href="/about.html">
+      <i class="fas fa-user">
+      </i>
+      <span>
+       About
+      </span>
+     </a>
+    </li>
+    <li>
+     <a class="flex items-center space-x-2" href="/kejutan-bunga-main/index.html">
+      <i class="fas fa-concierge-bell">
+      </i>
+      <span>
+       Flowerss
+      </span>
+     </a>
+    </li>
+    <li>
+     <a class="flex items-center space-x-2" href="/pesan.html">
+      <i class="fas fa-envelope">
+      </i>
+      <span>
+       Pesan
+      </span>
+     </a>
+    </li>
+   </ul>
+  </div>
+  <div class="content">
+   <div class="container">
+    <div class="title">
+     Ochaa
+    </div>
+    <div class="photo-frame">
+     <div class="tape">
+     </div>
+     <img alt="Tempat foto dia di sini" height="200" src="/img/info.jpg" width="200"/>
+     <div class="bottom-line">
+     </div>
+    </div>
+    <div class="details">
+     <p>
+      <b>Nama Lengkapnya:</b> Zerlinda Dinda Astri Rosalinda
+     </p>
+     <p>
+      <b>Tanggal Lahir:</b> 5 februari 2008
+     </p>
+     <p>
+      <b>Zodiak:</b> Aquarius dan Pisces
+     </p>
+     <p>
+    <b>Hobi:</b> main game
+     </p>
+     <p>
+    <b>Cita-cita:</b> astronot
+     </p>
+     <p>
+    <b>Makanan Favorit:</b> berger
+     </p>
+     <p>
+    <b>Minuman Favorit:</b> susu coklat
+     </p>
+     <p>
+    <b>Tempat Favorit:</b> rumah
+     </p>
+    </div>
+    <div class="story-container">
+     <div class="story">
+      <p style="margin-bottom: 20px;">
+       Di mulai pada saat aku sedang tidak ingin dengan siapa siapa, hal yg tidak terduga terjadi dimana kamu datang kepada ku, menanyakan bahwa aku anak jb atau tidak, kemudian aku pun menjawab iya setelah itu kamupun meminta tolong untuk menitipkan uangmu kepadaku karna pada saat kamu sedang menjual aku gensimu dan kemudian kamu ingin membeli akun ml, yg dimana semuanya di mulai dari sana, saat kamu sudah selesai membeli akun akun tersebut pun bermasalah yang dimana ternyata akun yg kamu beli adalah akun yg masih di tabrak orang, dan membutuhkan waktu 1 bulan agar akun tersebut bisa kamu unbin dan bin agar sepenuhnya aman, teringat jelas pada saat itu kamu sampai ga tidur menjaga akun tersebut agar tidak di login oleh orang lain, karna status akun masih belum aman sepenuhnya, kemudian selagi menjaga aku kamu pun mencobs mengajak ku untuk bermain ml atau mabar bareng bersama, aku pun setuju dan kita terus mengulanginya selang beberapa hari karna kita terlalu sering mabar aku pun mengajak mu main bersama teman teman ku karna aku percaya kamu bisa di andalkan, kemudian selang beberapa lama temen ku menganggapmu kamu adalah pacarku di situ pun aku cuma cengar cengir takut kamu risih klo tau apa yg di katakan temanku, hari demi hari kita mabar akhirnya pun tibalah dimana akun mu sudah aman sepenuhnya, di situlah aku berfikir "setelah ini sudah tidak ada lagi yg bisa aku bantu lagi, apakah setelah ini kamu akan meninggalkan ku seperti orang orang lain yg meminta tolong kemudian sesudahnya akan pergi" Namum semua pikiran ku itu terhempas jauh karna dirimu masih mencoba dekat dengan ku, dimulai dari mengajak collab bareng menggunakan hero joy dan harit aku pun memposting video nya yg membuat aku di sindir oleh teman ku di kelas, ada yg memanggilku dengan joy dan harit dan kadang kala juga ada yg cie ciee in, di situpun aku merasa aneh dimana aku seperti senang, malu, canggung, takut, bahagia semuanya campur aduk, dan hari demi hari dis juga kadang meminta tolong kepadaku untuk menitipkan saldo dana aku pun tidak pernah menolaknya dengan senang hari aku selalu suka jika dia meminta tolong kepadaku, kemudian suatu waktu aku mencoba mengajaknya bermain game horor pada saat main dengan nya aku baru sadar bahwa game nya full dengan bahasa Inggris untuk menyelesaikan nya, aku pun yg sangat payah bahasa Inggris menyuruhnya mengartikannya karna dia sangat pintar dalam bahasa Inggris, karna keterbatasan komunikasi disanalah kita mencoba untuk telvon yg pertama kalinya, di saat telvon itu aku pun berteriak karna kaget, setelah bermain game horor kita pun mencobs msin game suspersus atau bisa di bilang amongus namun versi game itu mewajibkan kita on mick, disana pun aku dan dia hanya diam saja karna malu, selang beberapa game ada orang yg mencoba menuduhnya, tetapi akupun memberanikan diri untuk berbicara dan membelanya, di situpun kita sama sama mulai berbicara tidak menyembunyikan suara masing masing. Teringat pada 02 FEBRUARI 2023 aku pun dengan dia mencoba untuk pulang bareng bersama yg dimana hal itu pengalaman yg tidak pernah akan aku lupakan, dimana untuk melakukan itu kita melakukan nya dengan diam diam, dimana pada saat itu dia yg sering pulang dengan bersama teman nya, tiba tiba dia pun menyuruh temen nya untuk pulang duluan, dimana teman nya tetep ingin menemaninya sampai dia berhasil meyakinkan nya untuk pergi, pada saat itu pun aku menunggu nya di kantin, selang teman nya pergi aku pun pergi ke kelas dan menjemput nya, selang beberapa langkah ku pun bener bener canggung pada saat itu aku tidak mengatakan sepatah katapun, namun aku sadar klo hal itu tidak baik dan aku pun memulai membuka topik pembicaraan sambil berjalan bersamanya menuju parkiran, dan di saat di jalan menuju rumah nya kita pun terkens hujan deras yg dimana kita hujan hujanan tetap melanjutkan perjalanan hingga rumah nya. Kemudian pada saat tanggal 5 februari 2023 dia pun mengajak jalan untuk pertama kalinya, aku awalannya menolak karna aku tidak bisa dalam hal seperti itu, sku takut akan canggung dan malah menjadi pengalaman buruk untuknya dengan jalan bersama orang yg hanya diam saja, tetapi pada saat itu aku sadar bahwa hari yg dia ajak dimana itu adalah hari ulang tahunnya, aku pun menyetujuinya untuk jalan bersamanya karna mungkin saja itu bisa jadi hadiah untuknya, sebelum hari itu tiba aku pun sering berlatih agar tidak canggung dan memikirkan topik yg banyak untuk nantinya, pada saat jalan pertama pun berjalan dengan baik, dengan aku yg berhasil menjalankan topik, dan aku juga tidak lupa mengucapkan selamat ulang tahun kepadanya, tiba tiba masalah muncul pada saat jalan waktu itu salah tau temen kelas kita ada yg melihat ku dengan nya sedang jalan, dan itu pun membuat heboh di kelas dengan menanyai hubungan ku dengan nya bagaimana, kemudian kita pun menjelaskan agar tidak salah paham karna pada waktu itu kita memang tidak ada hubungan apa apa, namun dikemudian hari pada saat ramai ramai nya pembahasan soal mixue aku pun mencoba ingin mengetahui perasaan dia kepadaku dengan membuat kotak anonim yg dimana aku buat 2 akun 1 untuk ku sw in dan 1 untuk dirinya aku pun mengsw kan ke 2 nya 1 ku sw kan secara public dan yg satunya ku sw kan hanya untuknya, jadi aku bakal tau pesan dari dia apa, dan dia malah mengucapkan kalo dia suka padaku, di saat itulah aku senang bahagia sekali, karna pada saat itu aku juga sudah mulai menyukainya, trus pada suatu malam kita pun berbicara dengan serius menyatakan perasaan masing masing, jika cerita ini di lanjutkan mungkin akan terbitlah sebuah buku yg berjudul "ni ai wo wo ai ni".
+      </p>
+      <p>
+       <!-- Placeholder for user input -->
+      </p>
+      <p>
+       <!-- Placeholder for user input -->
+      </p>
+      <p>
+       <!-- Placeholder for user input -->
+      </p>
+      <p>
+       <!-- Placeholder for user input -->
+      </p>
+      <p>
+       <!-- Placeholder for user input -->
+      </p>
+     </div>
+     <div class="photo-frame-with-hearts">
+      <div class="tape">
+      </div>
+      <img alt="Tempat foto kenangan kalian di sini" height="200" src="/img/awal.jpg" width="200"/>
+      <div class="bottom-line">
+      </div>
+      <div class="hearts">
+       ❤ ❤
+      </div>
+     </div>
+    </div>
+    <div class="quote-container">
+     <p class="quote">
+      Aku mencintaimu
+      <br/>
+      di saat aku tidak ingin mencintai siapa pun.
+      <br/>
+      Semoga kamu tidak memaksaku untuk berhenti
+      <br/>
+      mencintaimu di saat aku tidak ingin berhenti.
+     </p>
+    </div>
+    <div class="title">
+     ITU ORANGNYA..
+    </div>
+    <p>
+     Stoples di bawah ini sesuai dengan kelakuanmu
+    </p>
+    <div class="bottles">
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 100%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Lucu
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 70%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Posesif
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 100%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Cantik
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 100%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Baik
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 100%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Perhatian
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 1%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Aneh
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 100%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Romantis
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 30%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Ngambekan
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 0%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Alay
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 10%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Galak
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 5%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Nyebelin
+      </div>
+     </div>
+     <div class="bottle-container">
+      <div class="bottle">
+       <!-- Change the height value to adjust the content level -->
+       <div class="content" style="height: 100%;">
+       </div>
+      </div>
+      <div class="bottle-label">
+       Manja
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="page">
+    <div class="text">
+     Kamu pemenangnya.
+     <br>
+      <br>
+       Karena kamu sudah berhasil membuat aku jatuh cinta
+       <br>
+        di saat aku mati-matian menahan rasa.
+       </br>
+      </br>
+     </br>
+    </div>
+    <div class="image-container">
+     <img alt="A beautiful beach" height="150" src="/img/pantai.jpg" width="100"/>
+    </div>
+    <div class="page-number">
+     19
+    </div>
+   </div>
+  </div>
+  <!-- Audio element for autoplay -->
+  <audio id="background-music" src="/bangga.mp3" autoplay loop>
+    Your browser does not support the audio element.
+  </audio>
+  &lt;/body
+ </body>
+</html>
